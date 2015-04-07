@@ -17,7 +17,7 @@ ActionMailer::Base.raise_delivery_errors = true
 # http://edgeguides.rubyonrails.org/action_mailer_basics.html#intercepting-emails
 class DevelopmentMailInterceptor
   def self.delivering_email(message)
-    message.to =  'youremail@website.com'
+    message.to =  'tpasto@comcast.net'
     message.cc = nil
     message.bcc = nil
   end
