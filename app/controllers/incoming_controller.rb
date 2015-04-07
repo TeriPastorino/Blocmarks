@@ -15,6 +15,14 @@ class IncomingController < ApplicationController
     @bookmark.topic = @topic
     @bookmark.user = @user
     @bookmark.save
+
+
+    #if @user.nil?
+    #@user
+    #if @topic.nil?
+    #@topic
+
+    #@bookmark = @topic.bookmark.create(title: params[:subject])
     #referenced bloccit project - but missing pieces
      # Now that we're sure we have a valid user and topic, build and save a new bookmark
 
