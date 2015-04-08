@@ -13,12 +13,13 @@
       
     <!-- Collect the nav links, forms, and other content for toggling -->
     <ul class="nav navbar-nav">
-        <%= link_to "Home", root_path %>
-        <%= link_to "About", about_path %></ul>
+        <%= link_to "'Blocmarks'", welcome_index_path %>
+        <%= link_to "About", welcome_about_path %></ul>
         
         <div class="pull-right user-info">
           <% if current_user %>
-            Hello <%= link_to current_user.email  || current_user.name! %><%= link_to "sign out", destroy_user_session_path, method: :delete %>
+            Hello <%= link_to (current_user.email  || current_user.name),current_user %>!
+            <%= link_to "sign out", destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to "Sign In", new_user_session_path %> or
             <%= link_to "Sign Up", new_user_registration_path %>
@@ -33,26 +34,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-  <% if flash[:notice] %>
-        <div class="alert alert-success">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <%= flash[:notice] %>
-        </div>
-
-      <% elsif flash[:error] %>
-        <div class="alert alert-danger">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <%= flash[:error] %>
-        </div>
-
-        <% elsif flash[:alert] %>
-          <div class="alert">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <%= flash[:alert] %>
-        </div>
-        
-        <% end %>
-
+  
 
 <%= yield %>
 </div>
