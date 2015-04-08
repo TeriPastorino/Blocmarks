@@ -1,18 +1,18 @@
 class TopicsController < ApplicationController
   def index
     @topics = Topic.all
-    authorize @topics
+    #authorize @topics
   end
 
   def show
     @topic = Topic.find(params[:id])
     @bookmarks = @topic.bookmarks
-    authorize @topic
+    #authorize @topic
   end
 
   def new
     @topic = Topic.new
-    authorize @topic
+    #authorize @topic
   end
 
   def edit
@@ -22,7 +22,7 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.find(params[:id])
     name = @topic.name
-    authorize @topics
+    #authorize @topics
     if @topic.save
       redirect_to @topic, notice: "Topic was Saved"
     else
@@ -36,7 +36,7 @@ class TopicsController < ApplicationController
   def destroy
     @topic = Topic.find(params[:id])
     name = @topic.name
-    authorize @topics
+    #authorize @topics
     if @topic.destroy
       flash[:notice] ="\#{name}\" was deleted."
       redirect_to topics_show
