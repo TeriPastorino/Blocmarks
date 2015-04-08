@@ -386,7 +386,7 @@ $navbar-default-toggle-border-color:       #ddd;
 // Inverted navbar
 // Reset inverted navbar basics
 $navbar-inverse-color:                      #fff;
-$navbar-inverse-bg:                         f $brand-primary;
+$navbar-inverse-bg:                         $brand-primary;
 $navbar-inverse-border:                     darken($navbar-inverse-bg, 10%);
 
 // Inverted navbar links
