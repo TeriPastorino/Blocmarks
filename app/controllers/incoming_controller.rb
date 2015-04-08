@@ -16,7 +16,7 @@ class IncomingController < ApplicationController
     @bookmark.user = @user
     @bookmark.save
 
-
+    puts "INCOMING PARAMS HERE: #{params}"
     #if @user.nil?
     #@user
     #if @topic.nil?

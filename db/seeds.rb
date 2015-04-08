@@ -19,13 +19,14 @@ users = User.all
 #Create Topics
 15.times do
   topic = Topic.create(
-    title: Faker::Lorem.sentence
+    title: Faker::Lorem.sentence,
+    user:  users.sample,
+
     )
 
 #create Bookmark
   6.times do 
     Bookmark.create(
-      user:     users.sample,
       topic:    topic,
       url:    Faker::Internet.url
       )

@@ -21,6 +21,13 @@
 
   &-inverse {
 
+    a {
+      color: #fff;
+      &:hover {
+        color:#fff;
+      }
+    }
+
     .badge {
       background-color: #fff;
       color: $navbar-inverse-bg;
