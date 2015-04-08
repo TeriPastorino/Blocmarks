@@ -1,2 +1,13 @@
-<h1>Topics#index</h1>
+<h1>Topics</h1>
+
+<
 <p>Find me in app/views/topics/index.html.erb</p>
+<% @topics.each do |topic| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to topic.title, topic %>
+      </h4>
+    </div>
+  </div>
+<% end %>

@@ -1,2 +1,24 @@
-<h1>Topics#show</h1>
+<h1>@topic.name</h1>
 <p>Find me in app/views/topics/show.html.erb</p>
+
+
+<div class="row">
+  <div class="col-md-8">
+    <% @bookmarks.each do |bookmark| %>
+      <div class="media">
+        <h4 class="media-heading">
+          <%= link_to [@topic, bookmark.url] %>
+          <div class"col-md-8">
+            <%= link_to "Delete Bookmark", [@topic, bookmark], method: :delete, class: 'btn btn-danger' %>
+            </div>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+      
+  <div class="col-md-4">
+      <%= link_to "New Bookmark", new_topic_bookmark_path(@topic, @bookmark), class: 'btn btn-success' %>
+  </div>
+</div>
