@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
-  get 'bookmarks/show'
 
-  get 'bookmarks/new'
+  devise_for :users
 
-  get 'bookmarks/edit'
+  
 
   resources :topics do
     resources :bookmarks
   end
 
-  devise_for :users
-  get 'about' => 'welcome#about'
-    root to: 'welcome#index'
+get 'welcome/index'
+  get 'welcome/about'
+  root to: 'welcome#index'
 
     post :incoming, to: 'incoming#create'
 
