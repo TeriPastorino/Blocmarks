@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   resources :topics
 
   devise_for :users
-  resources :users, only: [:show, :update]
+    resources :users, only: [:show, :update]
   
   get "welcome/index"
   get "welcome/about"
  
   root to: 'welcome#index'
+  
   post :incoming, to: 'incoming#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
