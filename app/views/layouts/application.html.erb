@@ -10,7 +10,7 @@
 <body>
   <div class="container-fluid">
     <ul class="navbar navbar-inverse">
-        <li><%= link_to "Home", welcome_index_path %></li>
+        <li><%= link_to "Blocmarks", welcome_index_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
           
           <div class="pull-right user-info">
@@ -21,6 +21,8 @@
              <%= link_to "Sign Up", new_user_registration_path %>
            <% end %>
          </div>
+
+         
 
       </ul>
       <% if flash[:notice] %>
