@@ -50,6 +50,7 @@ group :development, :test do
 end
 
 gem 'devise'
+  gem 'pundit'
 gem 'faker'
 gem 'figaro', '1.0'
 
