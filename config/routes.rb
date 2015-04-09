@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+<<<<<<< HEAD
 
   
 
@@ -13,6 +14,16 @@ get 'welcome/index'
   root to: 'welcome#index'
 
     post :incoming, to: 'incoming#create'
+=======
+    resources :users, only: [:show, :update]
+  
+  get "welcome/index"
+  get "welcome/about"
+ 
+  root to: 'welcome#index'
+  
+  post :incoming, to: 'incoming#create'
+>>>>>>> crud
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
