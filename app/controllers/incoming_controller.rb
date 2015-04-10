@@ -3,31 +3,14 @@ class IncomingController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
-    @user = User.find_by(email: params[:sender])
-    @topic = @user.topics.find_by(title: params[:subject])
-    @url = params["body-plain"]
-
-    @user = User.create(email: params[:sender]) unless @user.present?
-     # Check if user is nil, if so, create and save a new user
-    @topic = Topic.create(title: params[:subject]) unless @topic.present?
-     # Check if the topic is nil, if so, create and save a new topic
-    @bookmark = Bookmark.create(url: @url)
-    @bookmark.topic = @topic
-    @bookmark.user = @user
-    @bookmark.save
-
     puts "INCOMING PARAMS HERE: #{params}"
-    #if @user.nil?
-    #@user
-    #if @topic.nil?
-    #@topic
 
-    #@bookmark = @topic.bookmark.create(title: params[:subject])
-    #referenced bloccit project - but missing pieces
-     # Now that we're sure we have a valid user and topic, build and save a new bookmark
-
-    # Assuming all went well. 
+    @user = User.find_by(email: params[:sender])
+    @url = params["body-plain"]
+    if @user.present?
+      @topic = @user.topics.find_or_create_by(title: params[:subject])
+      @topic.bookmarks.create(url: @url)
+    end
     head 200
   end
-
 end
