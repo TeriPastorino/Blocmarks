@@ -1,18 +1,18 @@
 class TopicsController < ApplicationController
   def index
     @topics = Topic.all
-    #authorize @topics
+    authorize @topics
   end
 
   def show
     @topic = Topic.find(params[:id])
     @bookmarks = @topic.bookmarks
-    #authorize @topic
+    authorize @topic
   end
 
   def new
     @topic = Topic.new
-    #authorize @topic
+    authorize @topic
   end
 
   def edit
@@ -20,9 +20,9 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.find(params[:id])
+    @topic = current_user.topic.build(topic_params)
     name = @topic.name
-    #authorize @topics
+    authorize @topics
     if @topic.save
       redirect_to @topic, notice: "Topic was Saved"
     else
@@ -48,6 +48,6 @@ class TopicsController < ApplicationController
 
   private
   def topic_params
-    params.required(:topic).permit(:name)
+    params.require(:topic).permit(:name)
   end
 end

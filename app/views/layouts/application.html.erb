@@ -9,7 +9,7 @@
 
 <body>
   <div class="container-fluid">
-<<<<<<< HEAD
+
     <ul class="navbar navbar-inverse">
         <li><%= link_to "Blocmarks", welcome_index_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
@@ -22,10 +22,8 @@
              <%= link_to "Sign Up", new_user_registration_path %>
            <% end %>
          </div>
-
-         
-
       </ul>
+
       <% if flash[:notice] %>
         <div class="alert alert-success">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -46,34 +44,7 @@
         
         <% end %>
 
-=======
-    <!-- Brand and toggle get grouped for better mobile display -->
-      
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <ul class="nav navbar-nav">
-        <%= link_to "'Blocmarks'", welcome_index_path %>
-        <%= link_to "About", welcome_about_path %></ul>
-        
-        <div class="pull-right user-info">
-          <% if current_user %>
-            Hello <%= link_to (current_user.email  || current_user.name),current_user %>!
-            <%= link_to "sign out", destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to "Sign In", new_user_session_path %> or
-            <%= link_to "Sign Up", new_user_registration_path %>
-          <% end %>
-          </div>
 
-        </div>
-             
-      
-      
-        
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-  
->>>>>>> crud
 
       <%= yield %>
     </div>
