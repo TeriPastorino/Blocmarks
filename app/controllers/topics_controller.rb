@@ -21,9 +21,8 @@ class TopicsController < ApplicationController
 
   def create
 
-    @topic = current_user.topic.build(topic_params)
-    name = @topic.name
-    authorize @topics
+    @topic = Topic.new(topic_params)
+    authorize @topic
 
     if @topic.save
       redirect_to @topic, notice: "Topic was Saved"
