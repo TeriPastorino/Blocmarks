@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.find(params[:id])
-    name = @topic.name
+    name = @topic.title
     #authorize @topics
     if @topic.save
       redirect_to @topic, notice: "Topic was Saved"
