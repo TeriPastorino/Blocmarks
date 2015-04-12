@@ -32,11 +32,23 @@ class TopicsController < ApplicationController
     end
   end
 
+  def update
+    @topic = Topic.find(params[:id])
+    #authorize @topics
+    if @topic.update_attributes(params[:id])
+      redirect_to @topic
+    else
+      flash[:error] = "Error saving, try again"
+      render :edit
+    end
+
+  end
+
 
   #create and destroy from the topics#index view
   def destroy
     @topic = Topic.find(params[:id])
-    name = @topic.name
+    name = @topic.title
     #authorize @topics
     if @topic.destroy
       flash[:notice] ="\#{name}\" was deleted."
