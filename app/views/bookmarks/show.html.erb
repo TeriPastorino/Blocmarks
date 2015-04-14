@@ -17,9 +17,9 @@ div class="row">
     <% @bookmarks.each do |bookmark| %>
       <div class="media">
         <h4 class="media-heading">
-          <%= link_to [@topic, bookmark.url] %>
+          <%= link_to bookmark.url %>
           <div class"col-md-8">
-            <%= link_to "Delete Bookmark", [@topic, bookmark.url], method: :delete, class: 'btn btn-danger' %>
+            <%= link_to "Delete Bookmark", [bookmark.url], method: :delete, class: 'btn btn-danger' %>
           </div>
         </h4>
      
