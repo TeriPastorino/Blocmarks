@@ -5,6 +5,7 @@ class BookmarksController < ApplicationController
   end
 
   def new
+    @topic = Topic.find(params[:id])
     @bookmarks = Bookmark.new
     authorize @bookmark
   end
@@ -12,4 +13,12 @@ class BookmarksController < ApplicationController
   def edit
 
   end
+
+  private
+  def bookmark_params
+    params.require(:bookmark).permit(:url)
+    
+  end
+  
+
 end

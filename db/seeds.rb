@@ -19,7 +19,7 @@ users = User.all
 #Create Topics
 15.times do
   topic = Topic.create(
-    title: Faker::Lorem.sentence,
+    title: Faker::Lorem.sentence(3),
     user:  users.sample,
 
     )
