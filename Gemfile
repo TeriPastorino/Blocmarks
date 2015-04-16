@@ -42,6 +42,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails', '~> 4.0'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -50,9 +51,14 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'launchy'
+end
+
 gem 'devise'
   gem 'pundit'
-gem 'faker'
 gem 'figaro', '1.0'
 
 

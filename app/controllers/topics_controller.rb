@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
     authorize @topic
 
     if @topic.save
-      redirect_to @topic, notice: "Topic was Added"
+      redirect_to topics_path, notice: "Topic was Added"
     else
       flash[:error] = "There was an error creating Topic. Please try again"
       render :new
@@ -35,7 +35,7 @@ class TopicsController < ApplicationController
     authorize @topic
 
     if @topic.update_attributes(topic_params)
-      redirect_to @topic
+      redirect_to topics_path
     else
       flash[:error] = "Error saving, try again"
       render :edit
@@ -49,8 +49,8 @@ class TopicsController < ApplicationController
     #name = @topic.title
     authorize @topic
     if @topic.destroy
-      flash[:notice] ="\#{title}\" topic was deleted."
-      redirect_to topics_show
+      flash[:notice] ="\"#{@topic.title}\" topic was deleted."
+      redirect_to topics_path
     else
       flash[:error] = "There was an error deleting"
       render :show
