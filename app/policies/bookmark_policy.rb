@@ -4,8 +4,9 @@ class BookmarkPolicy < ApplicationPolicy
     user.present? && (record.user == user)
   end
 
-    def destroy?
-    user.present? && (record.user == user)
+#commented out to be able to test delete button functioning
+  def destroy?
+    user.present? #&& (record.user == user)
   end
   
 end
