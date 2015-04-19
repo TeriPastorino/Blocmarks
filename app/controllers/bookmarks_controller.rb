@@ -10,7 +10,7 @@ class BookmarksController < ApplicationController
     authorize @bookmark
   end
 
-  def new
+  def new∏
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.new
     authorize @bookmark
@@ -51,14 +51,14 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    #@topic = Topic.find(params[:topic_id])
+    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
     #title = @bookmark.title
     authorize @bookmark
 
     if @bookmark.destroy
       flash[:notice] = "Bookmark was deleted"
-      redirect_to topics_path #@bookmark.topic
+      redirect_to topic_path @topic
     else
       flash[:error] = "Error deleting bookmark"
       render :show
