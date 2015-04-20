@@ -20,6 +20,7 @@
           <%= link_to bookmark.url %>
           <div class"col-md-8">
             <%= link_to "Delete Bookmark", [bookmark.url], method: :delete, class: 'btn btn-danger' %>
+            <%= render partial: 'likes/like', locals:( bookmark: @bookmark ) %>
           </div>
         </h4>
      
