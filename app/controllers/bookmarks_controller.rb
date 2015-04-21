@@ -5,12 +5,13 @@ class BookmarksController < ApplicationController
 
 #do we have to authorize? guessing not since we already had them sign in to see anything?
   def show
-    @bookmarks = @topic.Bookmark.find(params[:topic_id])
-    authorize @topic
+    @topic = Topic.find(params[:topic_id])
+    @bookmark = @topic.bookmarks.find(params[:id])
+    #authorize @topic
     authorize @bookmark
   end
 
-  def new∏
+  def new
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.new
     authorize @bookmark

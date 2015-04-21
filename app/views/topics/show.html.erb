@@ -20,7 +20,7 @@
 
             <a><%= link_to "Update", [@topic, bookmark], method: :update, class: "btn btn-default" %></a> 
 
-            
+            <%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
         
           </div>
         </div>

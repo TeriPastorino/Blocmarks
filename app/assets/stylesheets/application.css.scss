@@ -2,8 +2,10 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootswatch/journal/variables";
+
 @import "bootswatch/journal/bootswatch";
 @import "bootstrap";
+
 /*
 put the theme in app/stylesheets/bootswatch/[themename]
 then import the variables and bootswatch files (filenames start with _)
