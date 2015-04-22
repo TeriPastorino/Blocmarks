@@ -13,14 +13,16 @@
           <div class="caption">
             <p><h4>Visit this Link</h4></p>
 
-            
-          <% if policy(bookmark).destroy? %>
-            <a><%= link_to "Delete", [@topic, bookmark], method: :delete, class: "btn btn-primary" %></a> 
-          <% end %>
+          <ul class="list-inline">
+            <% if policy(bookmark).destroy? %>
+              <li>
+                <a><%= link_to "Delete", [@topic, bookmark], method: :delete, class: "btn btn-primary" %></a> 
+              </li>
+            <% end %>
+            </ul>
+      
+     <%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
 
-            <a><%= link_to "Update", [@topic, bookmark], method: :update, class: "btn btn-default" %></a> 
-
-            <%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
         
           </div>
         </div>
