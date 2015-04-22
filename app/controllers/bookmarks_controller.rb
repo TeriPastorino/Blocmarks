@@ -37,11 +37,18 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
 
+
+
     if @bookmark.update_attributes(bookmark_params)
       redirect_to @bookmark.topic
     else
       flash[:error] = "Error updating bookmark"
       render :edit
+
+      respond_to do |format|
+      format.html
+      format.js
+    end
     end
   end
 
@@ -59,7 +66,7 @@ class BookmarksController < ApplicationController
 
     if @bookmark.destroy
       flash[:notice] = "Bookmark was deleted"
-      redirect_to topic_path @topic
+      redirect_to edit_topic_bookmark_path @topic
     else
       flash[:error] = "Error deleting bookmark"
       render :show

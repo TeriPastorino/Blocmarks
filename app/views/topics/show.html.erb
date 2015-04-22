@@ -7,23 +7,32 @@
     <% @topic.bookmarks.each do |bookmark| %>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
-          <img src="" alt="...">
-          <h4><%= link_to bookmark.url, bookmark.url %></h4>
+        <img src="" alt="...">
+          <h4>
+            <%= link_to bookmark.url, bookmark.url %>
+          </h4>
 
           <div class="caption">
             <p><h4>Visit this Link</h4></p>
+          </div>
 
-          <ul class="list-inline">
-            <% if policy(bookmark).destroy? %>
+          <div class="container">
+            <ul class="list-inline">
+              <% if policy(bookmark).destroy? %>
               <li>
                 <a><%= link_to "Delete", [@topic, bookmark], method: :delete, class: "btn btn-primary" %></a> 
               </li>
-            <% end %>
-            </ul>
-      
-     <%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
+                <% end %>
 
-        
+              <% if policy(bookmark).update? %>
+                <li>
+                  <a><%= link_to "Update", [@topic, bookmark], method: :update, class: "btn btn-primary" %></a> 
+                </li>
+                  <% end %>
+
+              <li><%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

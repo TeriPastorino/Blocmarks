@@ -16,6 +16,9 @@ get 'welcome/index'
 
     post :incoming, to: 'incoming#create'
 
+#for modal bookmark update
+get "bookmark/edit" => 'bookmark#edit', :as => :update
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

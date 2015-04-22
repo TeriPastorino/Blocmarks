@@ -4,7 +4,7 @@
     <%= link_to "Delete Bookmark", [@topic, @bookmark], method: :delete, class: 'btn btn-danger' %>
   <% end %>
   
-  <% if policy(@bookmark).edit? %>
+  <% if policy(@bookmark).update? %>
     <%= link_to "Edit Bookmark", edit_topic_bookmark_path(@topic, @bookmark), class: 'btn btn-success' %>
   <% end %>
 
