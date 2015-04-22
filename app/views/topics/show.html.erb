@@ -4,6 +4,30 @@
 
 <div class="container-fluid">
   <div class="row top-buffer">
+    <div class="col-sm-6 col-md-3">
+      <ul class="list-inline">
+        <li>
+        <% if policy(@topic).create? %>
+          <p><%= link_to "Add Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-default btn-xs' %>
+          </p>
+          <% end %>
+        </li>
+        <li>
+        <% if policy(@topic).update? %>
+          <p><%= link_to "Edit Topic", edit_topic_path(@topic), class: 'btn btn-default btn-xs'%>
+          </p>
+          <% end %>
+        </li>
+        <li>
+        <% if policy(@topic).destroy? %>
+          <p><%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-xs'%>
+          </p>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+
     <% @topic.bookmarks.each do |bookmark| %>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
@@ -24,7 +48,7 @@
               </li>
                 <% end %>
 
-              <% if policy(bookmark).update? %>
+              <% if policy(bookmark).edit? %>
                 <li>
                   <a><%= link_to "Update", [@topic, bookmark], method: :update, class: "btn btn-primary" %></a> 
                 </li>

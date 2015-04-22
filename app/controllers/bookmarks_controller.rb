@@ -21,9 +21,10 @@ class BookmarksController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.build(bookmark_params)
     @bookmark.user = current_user
+    @bookmark.topic = @topic
     authorize @bookmark
 
-    if bookmark.save
+    if @bookmark.save
       flash[:notice] = "Bookmark Saved"
       redirect_to @topic
     else
@@ -37,10 +38,9 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
 
-
-
     if @bookmark.update_attributes(bookmark_params)
-      redirect_to @bookmark.topic
+      flash[:notice] = "Bookmark was updated"
+      redirect_to @bookmark
     else
       flash[:error] = "Error updating bookmark"
       render :edit
@@ -55,7 +55,7 @@ class BookmarksController < ApplicationController
   def edit
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
-    authorize @bookmarks
+    authorize @bookmark
   end
 
   def destroy

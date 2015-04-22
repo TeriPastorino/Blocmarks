@@ -35,7 +35,7 @@ class TopicsController < ApplicationController
     authorize @topic
 
     if @topic.update_attributes(topic_params)
-      redirect_to topics_path
+      render :show
     else
       flash[:error] = "Error saving, try again"
       render :edit
@@ -50,7 +50,7 @@ class TopicsController < ApplicationController
     authorize @topic
     if @topic.destroy
       flash[:notice] ="\"#{@topic.title}\" topic was deleted."
-      redirect_to topics_path
+     redirect_to topics_path
     else
       flash[:error] = "There was an error deleting"
       render :show

@@ -42,6 +42,8 @@ admin = User.new(
 admin.skip_confirmation!
 admin.save
 
+
+
 puts "seed finished"
 puts "#{Topic.count} Topics created"
 puts "#{Bookmark.count} Bookmarks created"
