@@ -31,13 +31,11 @@
     <% @topic.bookmarks.each do |bookmark| %>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
-        <img src="" alt="...">
+          <img src="" alt="...">
           <h4>
-
-          <%= display("#{bookmark.url.html_safe}") %><br />
-          <%= link_to bookmark.url.html_safe, bookmark.url.html_safe %><br />
-
-
+            <%= display(bookmark.url).title %>
+            <%= display(bookmark.url).description %>
+            <%= image_tag(display(bookmark.url).thumbnail_url).html_safe%>
           </h4>
 
           <div class="caption">
