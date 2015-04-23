@@ -33,7 +33,11 @@
         <div class="thumbnail">
         <img src="" alt="...">
           <h4>
-            <%= link_to bookmark.url, bookmark.url %>
+
+          <%= display("#{bookmark.url.html_safe}") %><br />
+          <%= link_to bookmark.url.html_safe, bookmark.url.html_safe %><br />
+
+
           </h4>
 
           <div class="caption">
