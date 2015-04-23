@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <h3><%= My Bookmarks %></h3>
+</div>
+<!-- added bookmarks -->
+<div class="container-fluid">
+  <div class="row top-buffer">
+    <div class="col-sm-6 col-md-3">
+      <ul class="list-inline">
+        <li>
+          <a><%=link_to "Delete Bookmark", [bookmark.topic, bookmark], method: :delete, class: 'btn btn-danger btn-sm' %><p></a> 
+          </li>
+        </ul>
+      </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+      <% @added_bookmarks.each do |bookmark| %>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+          <img src="" alt="...">
+            <h4>
+              <%= link_to bookmark.url, bookmark.url %>
+              <div class="container-fluid">
+                <h3><%= Liked Bookmarks %></h3>
+              </div>
+            </h4>
+
+            <div class="caption">
+              <p><h4>Visit this Link</h4></p>
+            </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- liked bookmarks -->
+<div class="container-fluid">
+  <h3><%= Liked Bookmarks %></h3>
+</div>
+
+<div class="container-fluid">
+  <div class="row top-buffer">
+    <div class="col-sm-6 col-md-3">
+      <ul class="list-inline">
+        <li>
+          <a><%=link_to "Delete Bookmark", [bookmark.topic, bookmark], method: :delete, class: 'btn btn-danger btn-sm' %><p></a> 
+          </li>
+        </ul>
+      </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+      <% @liked_bookmarks.each do |bookmark| %>
+        <div class="col-sm-6 col-md-3">
+          <div class="thumbnail">
+          <img src="" alt="...">
+            <h4>
+              <%= link_to bookmark.url, bookmark.url %>
+            </h4>
+
+            <div class="caption">
+              <p><h4>Visit this Link</h4></p>
+            </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
