@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'users/show'
+  get 'my/bookmarks', as: :my_bookmarks, to: 'users#show'
 
   devise_for :users
     resources :users, only: [:show]

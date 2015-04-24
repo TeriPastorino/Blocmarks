@@ -11,3 +11,5 @@
   <div class="media">
     <h3><%= link_to @bookmark.url, @bookmark.url %></h3>
   </div>
+
+  <%= render partial: 'likes/like', locals: {bookmark: bookmark} %>

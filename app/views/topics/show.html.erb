@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h3><%= @topic.title %></h3>
 </div>
-
+  
 <div class="container-fluid">
   <div class="row top-buffer">
     <div class="col-sm-6 col-md-3">
@@ -12,6 +12,7 @@
           </p>
           <% end %>
         </li>
+ 
         <li>
         <% if policy(@topic).update? %>
           <p><%= link_to "Edit Topic", edit_topic_path(@topic), class: 'btn btn-default btn-xs'%>
@@ -22,47 +23,23 @@
         <% if policy(@topic).destroy? %>
           <p><%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-xs'%>
           </p>
-          <% end %>
+        <% end %>
         </li>
       </ul>
     </div>
   </div>
 
-    <% @topic.bookmarks.each do |bookmark| %>
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <img src="" alt="...">
-          <h4>
-            <%= display(bookmark.url).title %>
-            <%= display(bookmark.url).description %>
-            <%= image_tag(display(bookmark.url).thumbnail_url).html_safe%>
-          </h4>
+  <% @topic.bookmarks.each do |bookmark| %>
+    <%= render partial: 'bookmarks/bookmark', locals: { bookmark: bookmark }%>
 
-          <div class="caption">
-            <p><h4>Visit this Link</h4></p>
-          </div>
 
-          <div class="container">
-            <ul class="list-inline">
-              <% if policy(bookmark).destroy? %>
-              <li>
-                <a><%= link_to "Delete", [@topic, bookmark], method: :delete, class: "btn btn-primary" %></a> 
-              </li>
-                <% end %>
+      <!-- Extract this into it's own partial (bookmarks/_bookmarks)
+           Replace with render @topic.bookmarks -->
 
-              <% if policy(bookmark).edit? %>
-                <li>
-                  <a><%= link_to "Update", [@topic, bookmark], method: :update, class: "btn btn-primary" %></a> 
-                </li>
-                  <% end %>
-
-              <li><%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
-              </li>
-            </ul>
-          </div>
-        </div>
+      
       </div>
     <% end %>
+  </div>
   </div>
 </div>
     
