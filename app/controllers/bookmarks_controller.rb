@@ -6,7 +6,7 @@ class BookmarksController < ApplicationController
 #do we have to authorize? guessing not since we already had them sign in to see anything?
   def show
     @topic = Topic.find(params[:topic_id])
-    @bookmark = @topic.bookmarks.find(params[:id])
+    @bookmark = @topic.bookmark.find(params[:id])
     #authorize @topic
     authorize @bookmark
   end
@@ -45,10 +45,7 @@ class BookmarksController < ApplicationController
       flash[:error] = "Error updating bookmark"
       render :edit
 
-      respond_to do |format|
-      format.html
-      format.js
-    end
+      
     end
   end
 
@@ -56,6 +53,11 @@ class BookmarksController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy
@@ -66,10 +68,10 @@ class BookmarksController < ApplicationController
 
     if @bookmark.destroy
       flash[:notice] = "Bookmark was deleted"
-      redirect_to edit_topic_bookmark_path @topic
+      redirect_to topic_path @topic
     else
       flash[:error] = "Error deleting bookmark"
-      render :show
+      redirect_to topic_path @topic
     end
   end
 

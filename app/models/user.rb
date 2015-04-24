@@ -2,6 +2,12 @@ class User < ActiveRecord::Base
 
   has_many :topics 
   has_many :bookmarks
+  # def liked_bookmarks
+  #                      # Like.where(user_id: self.id).pluck(:bookmark_id)
+  #   liked_bookmark_ids = likes.pluck(:bookmark_id)
+  #   Bookmark.where(id: liked_bookmark_ids)
+  # end
+  has_many :liked_bookmarks, through: :likes, source: :bookmark
   has_many :likes, dependent: :destroy
 
   # Include default devise modules. Others available are:

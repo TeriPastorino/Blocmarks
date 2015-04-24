@@ -1,19 +1,11 @@
 class BookmarkPolicy < ApplicationPolicy
-  def index?
-    true
-  end
 
   def update?
-    create?
+    user.present? #&& (record.user == user)
   end
 
-  def edit?
-    update?
-  end
-
-#commented out to be able to test delete button functioning
-  def destroy?
-    user.present? && (record.user == user)
+    def destroy?
+    user.present? #&& (record.user == user)
   end
   
 end

@@ -1,32 +1,31 @@
-
 <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <%= link_to image_tag(display(bookmark.url).thumbnail_url), bookmark.url%>
-          <h4>
-            <%= display(bookmark.url).title %>
-          </h4>
+  <div class="thumbnail img-holder">
+   
+    <h4>
+      <%= bookmark.display.title %>
+    </h4>
+    <%= link_to(bookmark.url, target: "_blank") do %>
+      <%= image_tag(bookmark.display.thumbnail_url, class: "image-responsive", width: 300, height: 300) %>
+    <% end %>
 
-          <div class="caption">
-            <p><h4>Visit this Link</h4></p>
-          </div>
+    <div class="container">
+      <ul class="list-inline">
+        <% if policy(bookmark).destroy? %>
+        <li>
+          <%= link_to "Delete", [bookmark.topic, bookmark], method: :delete, class: "btn btn-primary btn-xs" %>
+        </li>
+          <% end %>
 
-          <div class="container">
-            <ul class="list-inline">
-              <% if policy(bookmark).destroy? %>
-              <li>
-                <a><%= link_to "Delete", [@topic, bookmark], method: :delete, class: "btn btn-primary btn-xs " %></a> 
-              </li>
-                <% end %>
+        <% if policy(bookmark).edit? %>
+          <li>
+            <%= link_to "Update", edit_topic_bookmark_path(bookmark.topic, bookmark), class: "btn btn-primary btn-xs",remote: true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window' %>
+          </li>
+            <% end %>
 
-              <% if policy(bookmark).edit? %>
-                <li>
-                  <a><%= link_to "Update", [@topic, bookmark], method: :update, class: "btn btn-primary btn-xs" %></a> 
-                </li>
-                <% end %>
-
-              <li><%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        <li>
+          <%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
