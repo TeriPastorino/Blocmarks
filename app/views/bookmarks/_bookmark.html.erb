@@ -8,7 +8,7 @@
       <%= image_tag(bookmark.display.thumbnail_url, class: "image-responsive", width: 300, height: 300) %>
     <% end %>
 
-    <div class="container">
+    <div class="container-fluid">
       <ul class="list-inline">
         <% if policy(bookmark).destroy? %>
         <li>
@@ -18,7 +18,7 @@
 
         <% if policy(bookmark).edit? %>
           <li>
-            <%= link_to "Update", edit_topic_bookmark_path(bookmark.topic, bookmark), class: "btn btn-primary btn-xs",remote: true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window' %>
+            <%= link_to "Update", edit_topic_bookmark_path(bookmark.topic, bookmark), class: "btn btn-primary btn-xs", remote: true %>
           </li>
             <% end %>
 

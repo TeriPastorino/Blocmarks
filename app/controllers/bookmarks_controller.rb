@@ -40,7 +40,7 @@ class BookmarksController < ApplicationController
 
     if @bookmark.update_attributes(bookmark_params)
       flash[:notice] = "Bookmark was updated"
-      redirect_to @bookmark
+      redirect_to @bookmark.topic
     else
       flash[:error] = "Error updating bookmark"
       render :edit
