@@ -17,3 +17,5 @@
 //= require_tree .
 //= require bootstrap
 //= require bootstrap-modal
+//= require bootstrap-modalmanager
+
