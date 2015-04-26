@@ -2,6 +2,7 @@ class BookmarksController < ApplicationController
   # def index
   #   false
   # end
+  require 'embedly'
 
 #do we have to authorize? guessing not since we already had them sign in to see anything?
   def show
