@@ -1,6 +1,9 @@
 <%= render current_user.bookmarks %>
 
 <%= render current_user.liked_bookmarks %>
+
+
+
 <!-- this is an n + 1 (BAD BAD BAD BAD)
 <%# @liked_bookmarks.each do |like| %>
   <%# render like.bookmark %>

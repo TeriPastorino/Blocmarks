@@ -1,26 +1,24 @@
 <div class="col-sm-6 col-md-3">
-  <div class="thumbnail img-holder">
-   
+  <div class="thumbnail align-center">
     <h4>
-      <%= bookmark.display.title %>
+      <%= truncate(bookmark.display.title, length: 35, separator: '') %>
     </h4>
-    <%= link_to(bookmark.url, target: "_blank") do %>
-      <%= image_tag(bookmark.display.thumbnail_url, class: "image-responsive", width: 300, height: 300) %>
-    <% end %>
-
-    <div class="container-fluid">
+      <%= link_to(bookmark.url, target: "_blank") do %>
+        <%= image_tag(bookmark.display.thumbnail_url, class: "image-responsive", width: 280, height: 280) %>
+      <% end %>
+    <div class="caption align-center">
       <ul class="list-inline">
         <% if policy(bookmark).destroy? %>
-        <li>
-          <%= link_to "Delete", [bookmark.topic, bookmark], method: :delete, class: "btn btn-primary btn-xs" %>
-        </li>
-          <% end %>
+          <li>
+            <%= link_to "Delete", [bookmark.topic, bookmark], method: :delete, class: "btn btn-danger btn-xs",data: { confirm: 'Are you sure you want to delete this bookmark?' } %>
+          </li>
+        <% end %>
 
         <% if policy(bookmark).edit? %>
           <li>
             <%= link_to "Update", edit_topic_bookmark_path(bookmark.topic, bookmark), class: "btn btn-primary btn-xs", remote: true %>
           </li>
-            <% end %>
+          <% end %>
 
         <li>
           <%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
@@ -29,3 +27,4 @@
     </div>
   </div>
 </div>
+
