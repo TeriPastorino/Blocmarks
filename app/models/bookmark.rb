@@ -7,6 +7,8 @@ class Bookmark < ActiveRecord::Base
     #this line was throwing an error that it could not find association for topic in this model for the bookmark policy
     #has_one :user, through: :topic
     has_many :likes, dependent: :destroy
+  
+  #before_save :set_title
 
   def display
     return @obj if defined?(@obj)
@@ -14,5 +16,11 @@ class Bookmark < ActiveRecord::Base
     obj = embedly_api.oembed :url => url
     @obj = obj.first
   end
+  
+   # set title method that uses the display object to automatically set the title
+  def set_title
+    self.title = display.title
+  end
+
 
 end
