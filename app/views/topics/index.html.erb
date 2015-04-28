@@ -13,14 +13,11 @@
   </div>
 
   <% @topics.each do |topic| %>
-    <div class="media">
-      <div class="media-body">
-        <h4 class="media-heading">
-          <%= link_to topic.title, topic %>
-
-
-        </h4>
-      </div>
+    <h4>
+      <%= link_to topic.title, topic %>
+    </h4>
+    <div class="bookmarks">
+      <%= render topic.bookmarks.limit(5) %>
     </div>
   <% end %>
 </div>
