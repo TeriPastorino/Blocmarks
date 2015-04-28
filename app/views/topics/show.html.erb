@@ -22,7 +22,7 @@
         </li>
         <li>
           <% if policy(@topic).destroy? %>
-            <p><%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-xs'%>
+            <p><%= link_to "Delete Topic", @topic, method: :delete, remote: true, class: 'btn btn-danger btn-xs' %>
             </p>
           <% end %>
         </li>

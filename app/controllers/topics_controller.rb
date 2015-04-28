@@ -25,11 +25,17 @@ class TopicsController < ApplicationController
     authorize @topic
 
     if @topic.save
-      redirect_to topics_path, notice: "Topic was Added"
+      respond_to do |format|
+      format.html { redirect_to topics_path, notice: "\"#{@topic.title}\" was added successfully." }
+      format.js
+    end
+      #for ajax - redirect_to topics_path, notice: "Topic was Added"
     else
       flash[:error] = "There was an error creating Topic. Please try again"
-      render :new
+      # for - ajax render :new
     end
+
+    
   end
 
   def update
@@ -52,10 +58,15 @@ class TopicsController < ApplicationController
     authorize @topic
     if @topic.destroy
       flash[:notice] ="\"#{@topic.title}\" topic was deleted."
-     redirect_to topics_path
+     #for - ajax topics_path
     else
       flash[:error] = "There was an error deleting"
-      render :show
+      #for - ajax render :show
+    end
+
+    respond_to do |format|
+      format.html { redirect_to topics_path(current_user) }
+      format.js
     end
   end
 

@@ -1,8 +1,27 @@
-<%= render current_user.bookmarks %>
 
-<%= render current_user.liked_bookmarks %>
+<div class="container">
+  <h1>My Saved Bookmarks</h1>
+</div>
+<div>
+  <%= render current_user.bookmarks %>
+ </div>
+ 
+
 
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+<div class="container">
+  <h1>My Liked Bookmarks</h1>
+</div>
+
+<div >
+  <%= render current_user.liked_bookmarks %>
+</div>
+
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+ 
+
 
 <!-- this is an n + 1 (BAD BAD BAD BAD)
 <%# @liked_bookmarks.each do |like| %>

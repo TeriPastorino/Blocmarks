@@ -26,8 +26,12 @@ class BookmarksController < ApplicationController
     authorize @bookmark
 
     if @bookmark.save
-      flash[:notice] = "Bookmark Saved"
-      redirect_to @topic
+      respond_to do |format|
+        format.html { redirect_to user_path(current_user), notice: "\"#{@bookmark}\" was added successfully." }
+        format.js
+      end    
+      # ajax add - flash[:notice] = "Bookmark Saved"
+      # ajax add - redirect_to @topic
     else
       flash[:error] = "Error Saving Bookmark"
       render :new
@@ -55,10 +59,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    
   end
 
   def destroy
@@ -69,10 +70,15 @@ class BookmarksController < ApplicationController
 
     if @bookmark.destroy
       flash[:notice] = "Bookmark was deleted"
-      redirect_to topic_path @topic
+      # ajax -redirect_to topic_path @topic
     else
       flash[:error] = "Error deleting bookmark"
-      redirect_to topic_path @topic
+      # ajax - redirect_to topic_path @topic
+    end
+
+    respond_to do |format|
+      format.html { redirect_to topic_path(current_user) }
+      format.js
     end
   end
 

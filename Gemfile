@@ -62,6 +62,10 @@ gem 'figaro', '1.0'
 gem 'embedly', '~> 1.9.1'
 gem 'querystring', '~> 0.1.0'
 gem 'bootstrap-modal-rails'
+<<<<<<< HEAD
 gem 'url2png'
+=======
+gem 'will_paginate', '~> 3.0.5'
+>>>>>>> format_cleanup
 
 
