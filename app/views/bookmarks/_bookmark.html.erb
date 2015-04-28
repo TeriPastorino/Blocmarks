@@ -1,17 +1,17 @@
-<div class="col-sm-6 col-md-3">
-  <div class="thumbnail align-center">
+<div class="col-sm-6 col-md-3 ">
     <h4>
+
       <%= truncate(bookmark.display.title, length: 35, separator: '') %>
     </h4>
       <%= link_to(bookmark.url, target: "_blank") do %>
         <% if bookmark.display.thumbnail_url.present? %>
-          <%= image_tag(bookmark.display.thumbnail_url, class: "image-responsive", width: 280, height: 280) %>
+          <%= image_tag(bookmark.display.thumbnail_url, class: "image-responsive", size: "240") %>
           <% else %>
            <%= bookmark.display.title %> 
         <% end %>
       <% end %>
 
-    <div class="caption-content align-center">
+    <div class="caption-content">
       <ul class="list-inline">
         <% if policy(bookmark).destroy? %>
           <li>
@@ -31,5 +31,7 @@
       </ul>
     </div>
   </div>
+</div>
+</div>
 </div>
 
