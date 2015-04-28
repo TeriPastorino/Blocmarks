@@ -2,7 +2,7 @@
 <%= content_tag :div, class: "col-sm-6 col-md-3", id: "bookmark-#{bookmark.id}" do %>
   <div class="thumbnail align-center">
     <h4>
-      <%= truncate(bookmark.display.title, length: 30, separator: ' ') %>
+      <%= truncate(bookmark.display.title, length: 45, separator: ' ') %>
     </h4>
       <%= link_to(bookmark.url, target: "_blank") do %>
         <%= image_tag(url2png_image_url(bookmark.url), class: "image-responsive") %>

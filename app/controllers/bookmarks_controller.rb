@@ -1,13 +1,17 @@
 class BookmarksController < ApplicationController
-  # def index
-  #   false
-  # end
-  require 'embedly'
+  before_action: :get_bookmark, only: [:edit, :update]
+  before_action: :get_topic, only: [:edit, :show, :update, :destroy]
 
 #do we have to authorize? guessing not since we already had them sign in to see anything?
+  
+  def index
+    @bookmarks = Bookmark.all.limit(8)
+  end
+  
   def show
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmark.find(params[:id])
+    @bookmarks = @topic.bookmark.paginate(page: params[:page], per_page: 8)
     #authorize @topic
     authorize @bookmark
   end
@@ -26,12 +30,8 @@ class BookmarksController < ApplicationController
     authorize @bookmark
 
     if @bookmark.save
-      respond_to do |format|
-        format.html { redirect_to user_path(current_user), notice: "\"#{@bookmark}\" was added successfully." }
-        format.js
-      end    
-      # ajax add - flash[:notice] = "Bookmark Saved"
-      # ajax add - redirect_to @topic
+      flash[:notice] = "Bookmark Saved"
+      redirect_to @topic
     else
       flash[:error] = "Error Saving Bookmark"
       render :new

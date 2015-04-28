@@ -21,7 +21,6 @@ users = User.all
   topic = Topic.create(
     title: Faker::Lorem.sentence(3),
     user:  users.sample,
-
     )
 
 #create Bookmark

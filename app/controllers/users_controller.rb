@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
+  #bang or no bang?
+
   def show
+    @user = User.find(params[:id])
     @added_bookmarks = current_user.bookmarks
     @liked_bookmarks = current_user.likes
   end

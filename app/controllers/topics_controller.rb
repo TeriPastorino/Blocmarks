@@ -1,13 +1,14 @@
 class TopicsController < ApplicationController
-  require 'embedly'
+  before_action :authenticate_user!
+  before_action :get_topic, only: [:edit, :show, :update, :destroy]
 
   def index
-    @topics = Topic.all
+    @topics = Topic.paginate(page: params[:page], per_page: 8)
   end
 
   def show
     @topic = Topic.find(params[:id])
-    @bookmarks = @topic.bookmarks
+    @bookmarks = @topic.bookmarks.paginate(page: params[:page], per_page: 8)
   end
 
   def new
@@ -25,17 +26,11 @@ class TopicsController < ApplicationController
     authorize @topic
 
     if @topic.save
-      respond_to do |format|
-      format.html { redirect_to topics_path, notice: "\"#{@topic.title}\" was added successfully." }
-      format.js
-    end
-      #for ajax - redirect_to topics_path, notice: "Topic was Added"
+      redirect_to topics_path, notice: "Topic was added"   
     else
       flash[:error] = "There was an error creating Topic. Please try again"
-      # for - ajax render :new
-    end
-
-    
+      render :new
+    end    
   end
 
   def update
@@ -75,3 +70,4 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:title)
   end
 end
+

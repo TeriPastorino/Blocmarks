@@ -10,6 +10,8 @@ class Bookmark < ActiveRecord::Base
   
   #before_save :set_title
 
+  # before_save :set_title
+
   def display
     return @obj if defined?(@obj)
     embedly_api = Embedly::API.new :key => ENV['EMBEDLY_API_KEY']
@@ -23,4 +25,8 @@ class Bookmark < ActiveRecord::Base
   end
 
 
+  # set title method that uses the display object to automatically set the title
+  def set_title
+    self.title = display.title
+  end
 end
