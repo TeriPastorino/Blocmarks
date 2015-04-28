@@ -1,10 +1,10 @@
 <div class="col-sm-6 col-md-3">
   <div class="thumbnail align-center">
     <h4>
-      <%= truncate(bookmark.display.title, length: 35, separator: '') %>
+      <%= truncate(bookmark.display.title, length: 30, separator: ' ') %>
     </h4>
       <%= link_to(bookmark.url, target: "_blank") do %>
-        <%= image_tag(bookmark.display.thumbnail_url, class: "image-responsive", width: 280, height: 280) %>
+        <%= image_tag(url2png_image_url(bookmark.url), class: "image-responsive") %>
       <% end %>
     <div class="caption align-center">
       <ul class="list-inline">
@@ -20,7 +20,7 @@
           </li>
           <% end %>
 
-        <li>
+        <li class="pad-top">
           <%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
         </li>
       </ul>
