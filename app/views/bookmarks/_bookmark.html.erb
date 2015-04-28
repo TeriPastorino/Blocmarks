@@ -4,9 +4,14 @@
       <%= truncate(bookmark.display.title, length: 35, separator: '') %>
     </h4>
       <%= link_to(bookmark.url, target: "_blank") do %>
-        <%= image_tag(bookmark.display.thumbnail_url, class: "image-responsive", width: 280, height: 280) %>
+        <% if bookmark.display.thumbnail_url.present? %>
+          <%= image_tag(bookmark.display.thumbnail_url, class: "image-responsive", width: 280, height: 280) %>
+          <% else %>
+           <%= bookmark.display.title %> 
+        <% end %>
       <% end %>
-    <div class="caption align-center">
+
+    <div class="caption-content align-center">
       <ul class="list-inline">
         <% if policy(bookmark).destroy? %>
           <li>
