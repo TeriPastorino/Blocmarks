@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-md-3">
+<%= content_tag :div, class: "col-sm-6 col-md-3", id: "bookmark-#{bookmark.id}" do %>
   <div class="thumbnail">
     <div>
       <h4>
@@ -35,6 +35,5 @@
       </div>
     </div>
   </div>
-</div>
-
+<% end %>
 
