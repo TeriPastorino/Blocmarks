@@ -8,10 +8,12 @@
     <%= form_for @topic do |f| %>
       <div class="form-group">
         <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control', placeholder: "Enter topic name",  autofocus: true %>
+        <%= f.text_field :title, class: "js-topic-title",  placeholder: "Enter topic name",  autofocus: true  %>
       </div>
        <%= f.submit "Save", class: 'btn btn-success' %>
     <% end %>
   </div>
 </div>
 </div>
+
+<!-- 'form-control', -->

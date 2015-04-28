@@ -62,5 +62,6 @@ gem 'figaro', '1.0'
 gem 'embedly', '~> 1.9.1'
 gem 'querystring', '~> 0.1.0'
 gem 'bootstrap-modal-rails'
+gem 'will_paginate', '~> 3.0.5'
 
 
