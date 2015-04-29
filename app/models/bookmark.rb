@@ -8,6 +8,8 @@ class Bookmark < ActiveRecord::Base
     #has_one :user, through: :topic
     has_many :likes, dependent: :destroy
 
+    validates :url, presence: true
+
   # before_save :set_title
 
   def display
