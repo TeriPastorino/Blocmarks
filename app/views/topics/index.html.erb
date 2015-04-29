@@ -14,11 +14,13 @@
 
   <% @topics.each do |topic| %>
     <!-- wrap everyting inside the do in a row -->
+    
     <h4>
       <%= link_to topic.title, topic %>
     </h4>
     <div class="bookmarks">
-      <%= render topic.bookmarks.limit(5) %>
+      <%= will_paginate @topics %>
+      <%= render topic.bookmarks %>
     </div>
   <% end %>
 </div>

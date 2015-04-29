@@ -13,3 +13,6 @@
   </div>
 
   <%= render partial: 'likes/like', locals: {bookmark: bookmark} %>
+  <div>
+    <%= will_paginate @bookmarks %>
+  </div>

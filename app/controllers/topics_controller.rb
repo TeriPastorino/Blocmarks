@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_topic, only: [:edit, :show, :update, :destroy]
+  #before_action :get_topic, only: [:edit, :show, :update, :destroy]
 
   def index
     @topics = Topic.paginate(page: params[:page], per_page: 8)

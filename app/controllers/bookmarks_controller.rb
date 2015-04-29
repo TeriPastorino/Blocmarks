@@ -1,11 +1,12 @@
 class BookmarksController < ApplicationController
+  before_action: :authenticate_user!
   before_action: :get_bookmark, only: [:edit, :update]
   before_action: :get_topic, only: [:edit, :show, :update, :destroy]
 
 #do we have to authorize? guessing not since we already had them sign in to see anything?
   
   def index
-    @bookmarks = Bookmark.all.limit(8)
+    @bookmarks = Bookmark.all
   end
   
   def show
