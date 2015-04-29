@@ -252,8 +252,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   url2png
   web-console (~> 2.0)
-<<<<<<< HEAD
   will_paginate (~> 3.0.5)
-=======
-  will_paginate
->>>>>>> view_format
