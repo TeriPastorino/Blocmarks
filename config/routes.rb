@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   get 'users/show'
-  get 'my/bookmarks', as: :my_bookmarks, to: 'users#show'
+    get 'my/bookmarks', as: :my_bookmarks, to: 'users#show'
+  get 'users/star'
+    get 'my/bookmarks', as: :star_bookmarks, to: 'users#star'
+  get 'users/created'
+    get 'my/bookmarks', as: :created_bookmarks, to: 'users#create'
 
   devise_for :users
     resources :users, only: [:show]

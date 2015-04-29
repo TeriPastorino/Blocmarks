@@ -1,7 +1,8 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!
   #before_action :get_topic, only: [:edit, :show, :update, :destroy]
-
+  respond_to :html, :js
+  
   def index
     @topics = Topic.paginate(page: params[:page], per_page: 8)
   end
@@ -60,7 +61,7 @@ class TopicsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to topics_path(current_user) }
+      format.html { redirect_to my_bookmarks_path(current_user) }
       format.js
     end
   end

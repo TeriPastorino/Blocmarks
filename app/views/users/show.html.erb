@@ -1,26 +1,15 @@
 
 
-<div class="container">
-  <h1>My Saved Bookmarks</h1>
-</div>
-<div>
-  <%= will_paginate @bookmarks %>
-  <%= render current_user.bookmarks %>
- </div>
+  <%= render partial: 'users/liked' %>  
+  <!-- locals: {bookmark: bookmark} -->
+
+  <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
 
-<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+  <%= render partial: 'users/saved' %>
 
-<div class="container">
-  <h1>My Liked Bookmarks</h1>
-</div>
 
-<div >
-  <%= will_paginate @bookmarks %>
-  <%= render current_user.liked_bookmarks %>
-</div>
-
-<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+  <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
  
 

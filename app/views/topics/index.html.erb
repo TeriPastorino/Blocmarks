@@ -1,6 +1,6 @@
 
 <div class="container">
-  <h1>Topics</h1>
+  <h1>All Topics</h1>
 </div>
 
 <div class="container">
@@ -13,16 +13,29 @@
   </div>
 
   <% @topics.each do |topic| %>
-    <!-- wrap everyting inside the do in a row -->
-    <div class="row">
-    <h4>
-      <%= link_to topic.title, topic %>
-    </h4>
+ <div class="row">   <!-- wrap everyting inside the do in a row -->
+ <div class="container-fluid">
+  <div class="row top-buffer">
+    <div class="col-sm-6 col-md-3">      
+      <ul class="list-inline">
+        <li>
+    <h3>
+     <%= link_to topic.title, topic %></row>
+    </h3>
+  </li>
+<li>
+    <%= link_to "Delete Topic", @topic, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete this topic?' } %>
+  </li>
+</ul>
+  </div>
+</div>
+
     <div class="bookmarks">
       <%= will_paginate @topics %>
       <%= render topic.bookmarks %>
     </div>
   </div>
+
   <% end %>
 </div>
 </div>

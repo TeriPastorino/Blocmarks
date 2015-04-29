@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action: :authenticate_user!
+  before_action :authenticate_user!
   #before_action: :get_bookmark, only: [:edit, :update]
   #before_action: :get_topic, only: [:edit, :show, :update, :destroy]
   #need to write
@@ -77,7 +77,7 @@ class BookmarksController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to topic_path(current_user) }
+      format.html { redirect_to my_bookmarks_path(current_user) }
       format.js
     end
   end
