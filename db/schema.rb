@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150420190334) do
   end
 
   add_index "bookmarks", ["topic_id"], name: "index_bookmarks_on_topic_id"
+  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
