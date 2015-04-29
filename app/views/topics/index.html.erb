@@ -14,7 +14,7 @@
 
   <% @topics.each do |topic| %>
     <!-- wrap everyting inside the do in a row -->
-    
+    <div class="row">
     <h4>
       <%= link_to topic.title, topic %>
     </h4>
@@ -22,6 +22,7 @@
       <%= will_paginate @topics %>
       <%= render topic.bookmarks %>
     </div>
+  </div>
   <% end %>
 </div>
 </div>

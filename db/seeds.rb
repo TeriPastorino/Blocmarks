@@ -54,9 +54,21 @@ admin.save
 #users = User.all
 
 {
-  "E Learning" => %w{https://bloc.io http://treehouse.com http://codeacademy.com}
+  "E Learning" => %w{https://bloc.io http://treehouse.com http://codeacademy.com http://codeschool.com}
 }.each do |topic_name, bookmark_urls|
   topic = Topic.create(title: topic_name, user: teri)
+  bookmark_urls.each do |url|
+    Bookmark.create(
+      topic: topic,
+      url: url
+      )
+  end
+end
+
+{
+  "Gardens" => %w{https://yougrowgirl.com http://.eastbaywilds.com http://englishgardens.com http://gardendesign.com}
+}.each do |topic_name, bookmark_urls|
+  topic = Topic.create(title: topic_name, user: admin)
   bookmark_urls.each do |url|
     Bookmark.create(
       topic: topic,

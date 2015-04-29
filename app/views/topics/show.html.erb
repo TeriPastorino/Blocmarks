@@ -1,3 +1,6 @@
+
+
+
 <div>
 <div class="container-fluid">
   <h2><%= @topic.title %></h2>
@@ -6,8 +9,7 @@
         
 <div class="container-fluid">
   <div class="row top-buffer">
-    <div class="col-sm-6 col-md-3">
-      <ul class="list-inline">
+<%= content_tag :div, class: "col-sm-6 col-md-3", id: "topics-#{topics.id}" do %>      <ul class="list-inline">
         <li>
           <% if policy(@topic).create? %>
             <p><%= link_to "Add Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-default btn-xs' %>

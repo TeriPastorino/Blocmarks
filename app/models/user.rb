@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :topics 
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
   # def liked_bookmarks
   #                      # Like.where(user_id: self.id).pluck(:bookmark_id)
   #   liked_bookmark_ids = likes.pluck(:bookmark_id)
