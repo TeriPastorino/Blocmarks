@@ -1,7 +1,7 @@
-require 'embedly'
-require 'json'
-
 class Bookmark < ActiveRecord::Base
+  require 'embedly'
+  require 'json'
+
   belongs_to :user
   belongs_to :topic
     #this line was throwing an error that it could not find association for topic in this model for the bookmark policy
@@ -23,4 +23,5 @@ class Bookmark < ActiveRecord::Base
   def set_title
     self.title = display.title
   end
+
 end

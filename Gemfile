@@ -63,5 +63,6 @@ gem 'embedly', '~> 1.9.1'
 gem 'querystring', '~> 0.1.0'
 gem 'bootstrap-modal-rails'
 gem 'url2png'
+gem 'will_paginate'
 
 
