@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   get 'users/show'
     get 'my/bookmarks', as: :my_bookmarks, to: 'users#show'
   get 'users/show'
-    get 'my/bookmarks', as: :liked_bookmarks, to: 'users#liked'
-  get 'users/show'
-    get 'my/bookmarks', as: :added_bookmarks, to: 'users#added'
+     get 'my/bookmarks', as: :liked_bookmarks, to: 'my#liked'
+
 
   devise_for :users
     resources :users, only: [:show]
@@ -19,7 +18,7 @@ Rails.application.routes.draw do
   
 
 get 'welcome/index'
-  get 'welcome/about'
+  get 'welcome/about' 
   root to: 'welcome#index'
 
     post :incoming, to: 'incoming#create'

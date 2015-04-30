@@ -1,20 +1,44 @@
+<div class="container">
+  <h1>MyBookmarks</h1>
+</div>
 
+<div>
+<div class="container-fluid">
+  <h2><%= bookmark.topic.title%></h2>
+  <h5>Click to Visit Website</h5>
+</div>
+        
+<div class="container-fluid">
+  <div class="row top-buffer">
+    <div class="col-sm-6 col-md-3">      
+      <ul class="list-inline">
+        <li>
+          <% if policy(@topic).create? %>
+            <p><%= link_to "Add Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-default btn-xs' %>
+            </p>
+          <% end %>
+        </li>
+        <li>
+          <% if policy(@topic).update? %>
+            <p><%= link_to "Edit Topic", edit_topic_path(@topic), class: 'btn btn-default btn-xs'%>
+            </p>
+          <% end %>
+        </li>
+        <li>
+          <% if policy(@topic).destroy? %>
+            <p><%= link_to "Delete Topic", @topic, method: :delete, remote: true, class: 'btn btn-danger btn-xs' %>
+            </p>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-  <%= render 'users/liked' %>  
-  <!-- locals: {bookmark: bookmark} -->
+</div>
+  <%if policy(@added_bookmarks).show? %>
+    <%= render @topic.bookmarks %>
+    <%= will_paginate @bookmarks %>
+  <% end %>
+</div>
 
-  <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-
-
-  <%= render 'users/saved' %>
-
-
-  <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-
- 
-
-
-<!-- this is an n + 1 (BAD BAD BAD BAD)
-<%# @liked_bookmarks.each do |like| %>
-  <%# render like.bookmark %>
-<%# end %> -->
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
