@@ -10,7 +10,7 @@ class Bookmark < ActiveRecord::Base
   
   validates :url, presence: true
 
-  # before_save :set_title
+  before_save :set_title
 
   def display
     return @obj if defined?(@obj)

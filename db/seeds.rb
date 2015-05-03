@@ -66,7 +66,7 @@ admin.save
 end
 
 {
-  "Gardens" => %w{https://yougrowgirl.com http://.eastbaywilds.com http://englishgardens.com http://gardendesign.com}
+  "Gardens" => %w{https://yougrowgirl.com http://www.bringingbackthenatives.net http://englishgardens.com http://gardendesign.com}
 }.each do |topic_name, bookmark_urls|
   topic = Topic.create(title: topic_name, user: admin)
   bookmark_urls.each do |url|

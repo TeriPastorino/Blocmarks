@@ -1,6 +1,14 @@
 class TopicPolicy < ApplicationPolicy
 
-  def index?
-    true
+  def update?
+    user.present? && (record.user == user)
   end
+
+  def destroy?
+    update?
+  end
+
+  def edit?
+    update?
+  end  
 end

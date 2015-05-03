@@ -3,7 +3,7 @@
   <div class="thumbnail align-center">
     
     <h4>
-      <%= truncate(bookmark.display.title, length: 30, separator: ' ') %>
+      <%= truncate(bookmark.title, length: 30, separator: ' ') %>
     </h4>
       <%= link_to(bookmark.url, target: "_blank") do %>
         <%= image_tag(url2png_image_url(bookmark.url), class: "image-responsive") %>

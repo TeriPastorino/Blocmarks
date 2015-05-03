@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   respond_to :html, :js
   
   def index
-    @topics = Topic.paginate(page: params[:page], per_page: 8)
+    @topics = Topic.paginate(page: params[:page], per_page: 5)
   end
 
   def show
