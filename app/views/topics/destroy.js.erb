@@ -1,5 +1,5 @@
 <% if @topic.destroyed? %>
-  $('#topics-' +<%= @topics.id %>).fadeOut("slow");
+  $('#topic-' +<%= @topic.id %>).fadeOut("slow");
 <% else %>
-  $('#topics-' +<%= @topics.id %>).prepend("<div class='alert alert-danger'><%=flash[:error] %></div>");
+  $('#topic-' +<%= @topic.id %>).prepend("<div class='alert alert-danger'><%=flash[:error] %></div>");
 <% end %>

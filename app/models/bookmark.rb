@@ -9,6 +9,7 @@ class Bookmark < ActiveRecord::Base
     has_many :likes, dependent: :destroy
   
   validates :url, presence: true
+  default_scope { order "created_at DESC"}
 
   before_save :set_title
 

@@ -13,31 +13,30 @@
   </div>
 
   <% @topics.each do |topic| %>
- <div class="row">   <!-- wrap everyting inside the do in a row -->
- <div class="container-fluid">
-  <div class="row top-buffer">
-    <div class="col-sm-6 col-md-3">      
+  <div class="row">   <!-- wrap everyting inside the do in a row -->
+   <div class="container-fluid">
+    <div class="row top-buffer">
+      <%= content_tag :div, class: "col-sm-6 col-md-3", id: "topic-#{topic.id}" do %>
       <ul class="list-inline">
         <li>
-    <h3>
-     <%= link_to topic.title, topic %></row>
-    </h3>
-<li>
-  <% if policy(topic).destroy? %>
-    <%= link_to "Delete Topic", @topic, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete this topic?' } %>
-  <% end %>
-  </li>
-</ul>
+        <h3>
+         <%= link_to topic.title, topic %></row>
+        </h3>
+      </li>
+      <li>
+        <% if policy(topic).destroy? %>
+          <%= link_to "Delete Topic", topic, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete this topic and all bookmarks?' } %>
+        <% end %>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+<% end %>
 
     <div class="bookmarks">
       <%= render topic.bookmarks.includes(:likes) %>
     </div>
 
-    <div class="row">
-      <%= will_paginate @topics, class: 'paginate-bookmarks' %>
-    </div>
   <% end %>
-</div>
-</div>
+    </div>
+    </div>

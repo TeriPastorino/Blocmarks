@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   get 'users/show'
     get 'my/bookmarks', as: :my_bookmarks, to: 'users#show'
-  get 'users/show'
-     get 'my/liked', as: :liked_bookmarks, to: 'users#show'
+  get 'users/liked'
+     get 'my/likes', as: :liked_bookmarks, to: 'users#show'
 
 
   devise_for :users

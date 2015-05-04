@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   respond_to :html, :js
   
   def index
-    @topics = Topic.paginate(page: params[:page], per_page: 5)
+    @topics = Topic.paginate(page: params[:page])
   end
 
   def show
@@ -52,6 +52,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     #name = @topic.title
     authorize @topic
+    
     if @topic.destroy
       flash[:notice] ="\"#{@topic.title}\" topic was deleted."
      #for - ajax topics_path
@@ -59,9 +60,9 @@ class TopicsController < ApplicationController
       flash[:error] = "There was an error deleting"
       #for - ajax render :show
     end
-
+    
     respond_to do |format|
-      format.html 
+      format.html { redirect_to @topics }
       format.js
     end
   end
