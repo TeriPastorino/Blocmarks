@@ -9,7 +9,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @bookmarks = @topic.bookmarks.paginate(page: params[:page], per_page: 8)
+    @bookmarks = @topic.bookmarks.paginate(page: params[:page], per_page: 8).order("created_at DESC")
   end
 
   def new
@@ -61,7 +61,7 @@ class TopicsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to my_bookmarks_path(current_user) }
+      format.html 
       format.js
     end
   end

@@ -14,5 +14,5 @@
 
   <%= render partial: 'likes/like', locals: {bookmark: bookmark} %>
   <div>
-    <%= will_paginate @bookmarks %>
+    <%= will_paginate @bookmarks, class: 'paginate-bookmarks'%>
   </div>

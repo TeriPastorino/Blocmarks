@@ -2,9 +2,44 @@
   <h1>My Liked Bookmarks</h1>
 </div>
 
-<div >
-  <%= will_paginate @bookmarks %>
-  <%= render current_user.liked_bookmarks %>
-</div>
+<div class="container-fluid">
+  <div class="row top-buffer">
+      <!-- {"Gardening" => [bookarm, bookmark, bookmark]}  -->
+    <% @liked_bookmarks.each do |topic, liked_bookmarks| %>
+      <div class="container-fluid">
+        <h2><%= topic.title %></h2>
+        <h5>Click to Visit Website</h5>
+        <ul class="list-inline">
+         
+          <li>
+            <% if policy(Bookmark.new).create? %>
+              <p><%= link_to "Add Bookmark", new_topic_bookmark_path(topic), class: 'btn btn-default btn-xs' %>
+              </p>
+            <% end %>
+          </li>
+          <li>
+            <% if policy(topic).update? %>
+              <p><%= link_to "Edit Topic", edit_topic_path(topic), class: 'btn btn-default btn-xs'%>
+              </p>
+            <% end %>
+          </li>
+          <li>
+            <% if policy(topic).destroy? %>
+              <p><%= link_to "Delete Topic", topic, method: :delete, remote: true, class: 'btn btn-danger btn-xs' %>
+              </p>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container-fluid">
+        <%= render liked_bookmarks %>
+      </div>
+    <% end %>
+  </div>
+
+
 
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+

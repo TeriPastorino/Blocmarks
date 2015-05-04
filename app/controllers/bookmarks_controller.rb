@@ -5,13 +5,13 @@ class BookmarksController < ApplicationController
   #need to write
   
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = Bookmark.paginate.(page: params[:page], per_page: 5)
   end
   
   def show
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmark.find(params[:id])
-    @bookmarks = @topic.bookmark.paginate(page: params[:page], per_page: 8)
+    @bookmarks = @topic.bookmark.paginate(page: params[:page], per_page: 5).order("created_at DESC")
     #authorize @topic
     authorize @bookmark
   end

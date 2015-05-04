@@ -33,7 +33,7 @@
 </div>
 
   <%= render @topic.bookmarks %>
-  <%= will_paginate @bookmarks %>
+  <%= will_paginate @bookmarks, class: 'paginate-bookmarks' %>
 </div>
 
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>

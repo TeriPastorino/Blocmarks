@@ -13,6 +13,9 @@ then import the variables and bootswatch files (filenames start with _)
 @import "bootswatch/[themename]/bootswatch";
 */
 
+.paginate-bookmarks {
+  text-align: center;
+}
 
 modal-wide {
   width: 80%;
