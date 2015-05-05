@@ -8,14 +8,17 @@
 <div>
   <div class="container-fluid well align-center">
     <h4> Teri Pastorino - Web Developer</h4>
-    <h4>Contact me at: <a href="mailto:tpasto@comcast.net">tpasto@comcast.net </a></h4>
+    <h5>Contact me at: <a href="mailto:tpasto@comcast.net">tpasto@comcast.net </a></h5>
   </div>
 
-  <div class="container-fluid well align-center">
-    <h4> Teri Pastorino - Web Developer</h4>
-    <h4>Contact me at: <a href="mailto:tpasto@comcast.net">tpasto@comcast.net </a></h4>
-  </div>
   
+<div class="container-fluid well align-center">
+  <% if current_user %>
+  <h5> Email a Topic and Bookmark</h5>
+    <h5><a href="mailto:postmaster@app8411dce69fad4aafbb309aed11b02d90.mailgun.org">Create Bookmark</a></h5>
+  <% end %>
+  </div>
+
 </div>
 
 

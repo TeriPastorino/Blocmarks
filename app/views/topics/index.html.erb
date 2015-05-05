@@ -13,14 +13,15 @@
   </div>
 
   <% @topics.each do |topic| %>
-  <div class="row">   <!-- wrap everyting inside the do in a row -->
+  <div class="row">  
    <div class="container-fluid">
     <div class="row top-buffer">
       <%= content_tag :div, class: "col-sm-6 col-md-3", id: "topic-#{topic.id}" do %>
       <ul class="list-inline">
         <li>
         <h3>
-         <%= link_to topic.title, topic %></row>
+         <%= link_to topic.title, topic %>
+         </row>
         </h3>
       </li>
       <li>
