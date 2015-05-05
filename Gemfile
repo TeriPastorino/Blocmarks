@@ -51,7 +51,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'faker'
   gem 'capybara'
   gem 'launchy'
 end
@@ -63,6 +62,7 @@ gem 'embedly', '~> 1.9.1'
 gem 'querystring', '~> 0.1.0'
 gem 'bootstrap-modal-rails'
 gem 'url2png'
+gem 'faker'
 
 gem 'will_paginate', '~> 3.0.5'
 
