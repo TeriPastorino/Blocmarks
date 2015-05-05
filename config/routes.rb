@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'users/show'
-    get 'my/bookmarks', as: :my_bookmarks, to: 'users#show'
-  get 'users/liked'
-     get 'my/likes', as: :liked_bookmarks, to: 'users#show'
+  # without extra arguments
+  # get 'controller/action' => controller_action_path helper
+  # with a named helper
+  # get 'contorller/action', as: :my_action
+  # get 'path/to/somewhere', as: :somewhere, to: "controller#action"
+  get 'my/bookmarks', as: :my_bookmarks, to: 'users#show'
+  get 'my/likes', as: :liked_bookmarks, to: 'users#liked'
 
 
   devise_for :users

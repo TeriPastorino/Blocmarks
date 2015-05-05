@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def liked
     #find current users likes
     #group by bookmark.topic.title
-    @liked_bookmarks = current_user.bookmarks.includes(:topic, :likes).group_by do |bookmark|
+    @liked_bookmarks = current_user.liked_bookmarks.includes(:topic, :likes).group_by do |bookmark|
     bookmark.topic
     end
   end    
