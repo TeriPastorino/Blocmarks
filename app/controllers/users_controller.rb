@@ -19,7 +19,6 @@ class UsersController < ApplicationController
     bookmark.topic
     end
   end    
-
   
 end
   

@@ -2,7 +2,6 @@
   <h1>My Saved Bookmarks</h1>
 </div>
 
-
 <div class="container-fluid">
   <div class="row top-buffer">
       <!-- {"Gardening" => [bookarm, bookmark, bookmark]}  -->
@@ -11,7 +10,6 @@
         <h2><%= topic.title %></h2>
         <h5>Click to Visit Website</h5>
         <ul class="list-inline">
-         
           <li>
             <% if policy(Bookmark.new).create? %>
               <p><%= link_to "Add Bookmark", new_topic_bookmark_path(topic), class: 'btn btn-default btn-xs' %>
@@ -37,7 +35,7 @@
         <%= render added_bookmarks %>
       </div>
     <% end %>
-  </div>
+</div>
 
 
 

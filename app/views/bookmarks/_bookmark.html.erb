@@ -20,15 +20,14 @@
             <li>
               <%= link_to "Update", edit_topic_bookmark_path(bookmark.topic, bookmark), class: "btn btn-primary btn-xs", remote: true %>
             </li>
-            <% end %>
+          <% end %>
 
-        <li class="pad-top">
-          <%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
-        </li>
-      </ul>
+          <li class="pad-top">
+            <%= render partial: 'likes/like', locals:{ bookmark: bookmark } %>
+          </li>
+        </ul>
       </div>
-
-    </div>
-
+      
+  </div>
 <% end %>
 

@@ -10,7 +10,6 @@
         <h2><%= topic.title %></h2>
         <h5>Click to Visit Website</h5>
         <ul class="list-inline">
-         
           <li>
             <% if policy(Bookmark.new).create? %>
               <p><%= link_to "Add Bookmark", new_topic_bookmark_path(topic), class: 'btn btn-default btn-xs' %>
